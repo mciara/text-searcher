@@ -12,8 +12,10 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'idea'
+apply plugin: 'application'
 apply plugin: 'com.github.johnrengelman.shadow'
 
+mainClassName = 'com.mciara.textsearcher.TextSearcher'
 sourceCompatibility = 1.8
 
 repositories {
@@ -27,6 +29,6 @@ dependencies {
 shadowJar {
     manifest {
         attributes 'Implementation-Title': 'Text Searcher', 'Implementation-Version': project.version
-        attributes 'Main-Class': 'com.mciara.textsearcher.TextSearcher'
+        attributes 'Main-Class': project.mainClassName
     }
 }
